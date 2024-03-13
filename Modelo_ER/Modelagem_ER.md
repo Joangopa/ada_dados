@@ -30,3 +30,6 @@ Requisitos:
 - Um ciclista pode participar de várias provas.
 - Uma prova pode ter vários ciclistas participantes.
 - Um resultado pertence a um ciclista e uma prova.
+
+
+![diagrama_ER][https://github.com/Joangopa/ada_dados/blob/main/Modelo_ER/modelo_ER.jpg]
