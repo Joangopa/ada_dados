@@ -1,4 +1,4 @@
-## Criação do Bando de Dados e Consultas
+## Criação do Banco de Dados e Consultas
 
 Para o desarrollo desta parte do projeto usamos a base de dados classicmodels a qual pode ser encontrada em https://www.mysqltutorial.org/getting-started-with-mysql/mysql-sample-database/ 
 
