@@ -36,7 +36,7 @@ No arquivo  ComandoDML_Basico.sql[https://github.com/Joangopa/ada_dados/blob/mai
 
 ## Consultas em Base de Dados
 
-Inicialmente estamos interessados em consultar as diferentes categorias de produtos, assim com a quantidade de produtos diferentes por cada categoria
+Inicialmente, estamos interessados em consultar as diferentes categorias de produtos, assim como a quantidade de produtos diferentes em cada categoria.
 ```
 SELECT productLine as Categoria_produtos, COUNT(*) AS total_produtos
 FROM products
@@ -45,7 +45,7 @@ GROUP BY productline
 ```
 ![categoria_produtos](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/categoria_produtos.png)
 
-Em uma análise rápida sobre o desempenho nas vendas, queremos considerar os empregados que não tem vendas registradas, assim como sua posição na empresa (nem todos tem que ser vendedores)
+Em uma análise rápida sobre o desempenho nas vendas, queremos considerar os empregados que não têm vendas registradas, assim como sua posição na empresa (nem todos têm que ser vendedores).
 ```
 SELECT e.employeeNumber, e.firstName, e.lastName
 FROM employees e
@@ -67,7 +67,7 @@ WHERE od.productCode IS NULL
 ![produtos_nao_vendidos](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/produto_sem_vendas.png)
 
 
-Em uma nova proposta para incentivar o aumento das vendas a nivel global, a liderança da empresa quer saber a posição de cada unidade com respeito a quantidade de valor de vendas geradas historicamente
+Em uma nova proposta para incentivar o aumento das vendas a nível global, a liderança da empresa quer saber a posição de cada unidade com respeito à quantidade de valor de vendas geradas historicamente.
 ```
 SELECT o.officeCode as cof_loja, o.city as cidade, SUM(od.quantityOrdered * od.priceEach) AS vendas_totais
 FROM offices o
@@ -99,7 +99,7 @@ ORDER BY quantidade_vendas DESC
 
 
 
-Seguindo com a ideia de incrementar as vendas, serão selecionados para oferta de preço os produtos com valor de venda maior ao valor por meio de venda de todos os produtos
+Seguindo a ideia de incrementar as vendas, serão selecionados para oferta de preço os produtos com valor de venda maior em comparação ao preço médio de venda de todos os produtos.
 ```
 SELECT productName as produto, productLine as categoria,  buyPrice as preco_venda
 FROM products
