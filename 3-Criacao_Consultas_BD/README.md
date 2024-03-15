@@ -15,21 +15,18 @@ No arquivo  ComandoDML_Basico.sql[https://github.com/Joangopa/ada_dados/blob/mai
 ## Consultas em Base de Dados
 
 ```
-SELECT productLine from productlines;
-
-SELECT productline, COUNT(*) AS total_products
+SELECT productLine as Categoria_produtos, COUNT(*) AS total_produtos
 FROM products
 GROUP BY productline
 ;
-
-
-SELECT officeCode, city from offices
-;
-
-
 ```
 
+```
+SELECT officeCode, city from offices
+;
+```
 
+Em uma análise rápeda sobre o desempnho nas vendas, queremos considerar os empleados que não tem vendas registradas, assim como sua posição na empresa (não tedos tem que ser vendedores)
 ```
 SELECT e.employeeNumber, e.firstName, e.lastName
 FROM employees e
@@ -40,7 +37,7 @@ WHERE c.customerNumber IS NULL
 ![empleados_sem_vendas](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/empleados_semVendas.png)
 
 
-Para consultar os produtos que não tem sido vendidos podemos fazer
+Também temos interese na existencia de produtos que nunca tem sido vendidos 
 ``` 
 SELECT p.productCode, p.productName
 FROM products p
@@ -49,3 +46,23 @@ WHERE od.productCode IS NULL
 ;
 ```
 ![produtos_nao_vendidos](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/produto_sem_vendas.png)
+
+
+Em uma nova proposta para incentivar aumentar as vendas a nivel global, a liderança da empresa quer saber a posição de cada unidade com respeito a quantidade de valor en vendas geradas historicamente
+```
+SELECT o.officeCode as cof_loja, o.city as cidade, SUM(od.quantityOrdered * od.priceEach) AS vendas_totais
+FROM offices o
+INNER JOIN employees e ON o.officeCode = e.officeCode
+INNER JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber
+INNER JOIN orders orde ON c.customerNumber = orde.customerNumber
+INNER JOIN orderdetails od ON orde.orderNumber = od.orderNumber
+GROUP BY o.officeCode
+ORDER BY vendas_totais DESC
+;
+```
+
+
+
+
+
+
