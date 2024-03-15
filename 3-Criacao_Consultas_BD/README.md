@@ -14,7 +14,7 @@ No arquivo  ComandoDML_Basico.sql[https://github.com/Joangopa/ada_dados/blob/mai
 
 ## Consultas em Base de Dados
 
-Inicialmente estamos interesados em consultar as diferentes categorias de produtos, assim com a quantidade de produtos diferentes por cada categoria
+Inicialmente estamos interessados em consultar as diferentes categorias de produtos, assim com a quantidade de produtos diferentes por cada categoria
 ```
 SELECT productLine as Categoria_produtos, COUNT(*) AS total_produtos
 FROM products
