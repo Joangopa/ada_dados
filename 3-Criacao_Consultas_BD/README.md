@@ -5,7 +5,22 @@ Para o desenvolver esta parte do projeto, usamos a base de dados classicmodels a
 Para facilidade, o arquivo SQL gerador da base encontra-se nesta pasta com o nome classicmodels_DB.sql [https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/classicmodels_DB.sql]
 
 
-O banco de dados classicmodels é um banco de dados de um varejista de modelos em escala de carros clássicos. Ele contém dados comerciais típicos, incluindo informações sobre clientes, produtos, pedidos de vendas, itens de linha de pedidos de vendas e muito mais. 
+O banco de dados classicmodels é um banco de dados de um varejista de modelos em escala de carros clássicos.
+Consiste nas seguintes tabelas:
+
+-customers: armazena os dados do cliente.
+-products: armazena uma lista de carros modelo em escala.
+-productlines: armazena uma lista de linhas de produtos.
+-orders: armazena pedidos de vendas feitos pelos clientes.
+-orderdetails: armazena itens de linha de pedidos de vendas para cada pedido de venda.
+-payments: armazena pagamentos feitos pelos clientes com base em suas contas.
+-employees:  armazena informações dos funcionários e a estrutura organizacional, como quem reporta para quem.
+-offices: armazena dados do escritório de vendas.
+
+
+A seguinte imagem ilustra o diagrama ER do banco de dados de exemplo:
+
+![modelo_ER_banco](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/modelo_ER_classicmodels.png)
 
 No arquivo ComandosDDL.sql [https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/ComandosDDL.sql] encontra-se os comandos para a criação do Banco de Dados, assim como alguns outros comandos DDL para criação de tabelas, modificação estrutural de tabelas e remoção de tabelas.
  
