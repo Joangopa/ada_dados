@@ -15,6 +15,22 @@ No arquivo  ComandoDML_Basico.sql[https://github.com/Joangopa/ada_dados/blob/mai
 ## Consultas em Base de Dados
 
 ```
+SELECT productLine from productlines;
+
+SELECT productline, COUNT(*) AS total_products
+FROM products
+GROUP BY productline
+;
+
+
+SELECT officeCode, city from offices
+;
+
+
+```
+
+
+```
 SELECT e.employeeNumber, e.firstName, e.lastName
 FROM employees e
 LEFT JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber
