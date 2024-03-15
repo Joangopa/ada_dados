@@ -21,7 +21,7 @@ LEFT JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber
 WHERE c.customerNumber IS NULL
 ;
 ```
-
+![empleados_sem_vendas](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/empleados_semVendas.png)
 
 
 Para consultar os produtos que não tem sido vendidos podemos fazer
