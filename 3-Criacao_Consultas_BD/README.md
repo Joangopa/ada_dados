@@ -11,3 +11,22 @@ No arquivo ComandosDDL.sql [https://github.com/Joangopa/ada_dados/blob/main/3-Cr
  
 No arquivo  ComandoDML_Basico.sql[https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/ComandoDML_Basico.sql] encontra-se comandos de inserção, edição e remoção de dados nas tabelas.
 
+
+## Consultas em Base de Dados
+
+```
+SELECT e.employeeNumber, e.firstName, e.lastName
+FROM employees e
+LEFT JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber
+WHERE c.customerNumber IS NULL
+;
+```
+
+
+``` 
+SELECT p.productCode, p.productName
+FROM products p
+LEFT JOIN orderdetails od ON p.productCode = od.productCode
+WHERE od.productCode IS NULL
+;
+``` 
