@@ -23,10 +23,13 @@ WHERE c.customerNumber IS NULL
 ```
 
 
+
+Para consultar os produtos que não tem sido vendidos podemos fazer
 ``` 
 SELECT p.productCode, p.productName
 FROM products p
 LEFT JOIN orderdetails od ON p.productCode = od.productCode
 WHERE od.productCode IS NULL
 ;
-``` 
+```
+![produtos_nao_vendidos](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/produto_sem_vendas.png)
