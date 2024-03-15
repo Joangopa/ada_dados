@@ -32,4 +32,4 @@ Requisitos:
 - Um resultado pertence a um ciclista e uma prova.
 
 
-![diagrama_ER](https://github.com/Joangopa/ada_dados/blob/main/1-Modelo_ER/modelo_ER.jpg)
+![diagrama_ER](https://github.com/Joangopa/ada_dados/blob/main/1-Modelo_ER/diagramaER.jpeg)
