@@ -96,6 +96,17 @@ ORDER BY preco_venda DESC
 ![mais_caros_promedio](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/mais_caros_promedio.png)
 
 
+Uma das novas propostas é dar ofertas especiais aos compradores que registrem mais de 10 ordens de compras
+```
+SELECT c.customerNumber as cod_comprador, c.customerName as comprador, COUNT(o.orderNumber) AS total_ordens
+FROM customers c
+LEFT JOIN orders o ON c.customerNumber = o.customerNumber
+GROUP BY c.customerNumber, c.customerName
+HAVING COUNT(o.orderNumber) > 5
+;
+```
+![maiores_compradores](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/maiores_compradores.png)
+
 
 
 
