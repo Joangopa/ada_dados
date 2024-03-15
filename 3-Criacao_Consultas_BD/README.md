@@ -29,7 +29,7 @@ No arquivo  ComandoDML_Basico.sql[https://github.com/Joangopa/ada_dados/blob/mai
 
 ## Consultas em Base de Dados
 
-Inicialmente estamos interesados em consultar as diferentes categorias de produtos, assim com a quantidade de produtos diferentes por cada categoria
+Inicialmente estamos interessados em consultar as diferentes categorias de produtos, assim com a quantidade de produtos diferentes por cada categoria
 ```
 SELECT productLine as Categoria_produtos, COUNT(*) AS total_produtos
 FROM products
@@ -45,7 +45,7 @@ SELECT officeCode, city from offices
 ```
 ![unidades](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/lojas.png)
 
-Em uma análise rápida sobre o desempnho nas vendas, queremos considerar os empregados que não tem vendas registradas, assim como sua posição na empresa (nem todos tem que ser vendedores)
+Em uma análise rápida sobre o desempenho nas vendas, queremos considerar os empregados que não tem vendas registradas, assim como sua posição na empresa (nem todos tem que ser vendedores)
 ```
 SELECT e.employeeNumber, e.firstName, e.lastName
 FROM employees e
@@ -67,7 +67,7 @@ WHERE od.productCode IS NULL
 ![produtos_nao_vendidos](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/produto_sem_vendas.png)
 
 
-Em uma nova proposta para incentivar aumentar as vendas a nivel global, a liderança da empresa quer saber a posição de cada unidade com respeito a quantidade de valor de vendas geradas historicamente
+Em uma nova proposta para incentivar o aumento das vendas a nivel global, a liderança da empresa quer saber a posição de cada unidade com respeito a quantidade de valor de vendas geradas historicamente
 ```
 SELECT o.officeCode as cof_loja, o.city as cidade, SUM(od.quantityOrdered * od.priceEach) AS vendas_totais
 FROM offices o
@@ -125,7 +125,7 @@ HAVING COUNT(o.orderNumber) > 5
 
 
 
-Finalmente, queremos saber quais são os 5 produtos com menos vendas no mundo
+Finalmente, queremos saber quais são os 5 produtos com menor quantidade de vendas no mundo
 ```
 SELECT 
     p.productCode as cod_produto, 
