@@ -38,13 +38,6 @@ GROUP BY productline
 ```
 ![categoria_produtos](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/categoria_produtos.png)
 
-Unidades de venda da empresa
-```
-SELECT officeCode, city from offices
-;
-```
-![unidades](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/lojas.png)
-
 Em uma análise rápida sobre o desempenho nas vendas, queremos considerar os empregados que não tem vendas registradas, assim como sua posição na empresa (nem todos tem que ser vendedores)
 ```
 SELECT e.employeeNumber, e.firstName, e.lastName
