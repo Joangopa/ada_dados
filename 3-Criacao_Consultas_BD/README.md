@@ -9,12 +9,19 @@ O banco de dados classicmodels é um banco de dados de um varejista de modelos e
 Consiste nas seguintes tabelas:
 
 -customers: armazena os dados do cliente.
+
 -products: armazena uma lista de carros modelo em escala.
+
 -productlines: armazena uma lista de linhas de produtos.
+
 -orders: armazena pedidos de vendas feitos pelos clientes.
+
 -orderdetails: armazena itens de linha de pedidos de vendas para cada pedido de venda.
+
 -payments: armazena pagamentos feitos pelos clientes com base em suas contas.
+
 -employees:  armazena informações dos funcionários e a estrutura organizacional, como quem reporta para quem.
+
 -offices: armazena dados do escritório de vendas.
 
 
