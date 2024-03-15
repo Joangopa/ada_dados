@@ -1,13 +1,13 @@
 ## Criação do Banco de Dados e Consultas
 
-Para o desarrollo desta parte do projeto usamos a base de dados classicmodels a qual pode ser encontrada em https://www.mysqltutorial.org/getting-started-with-mysql/mysql-sample-database/ 
+Para o desenvolver esta parte do projeto, usamos a base de dados classicmodels a qual pode ser encontrada em: https://www.mysqltutorial.org/getting-started-with-mysql/mysql-sample-database/ 
 
-Para facilidade, o arquivo sql gerador da base encontrase nesta pasta com o nome classicmodels_DB.sql [https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/classicmodels_DB.sql]
+Para facilidade, o arquivo SQL gerador da base encontra-se nesta pasta com o nome classicmodels_DB.sql [https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/classicmodels_DB.sql]
 
 
 O banco de dados classicmodels é um banco de dados de um varejista de modelos em escala de carros clássicos. Ele contém dados comerciais típicos, incluindo informações sobre clientes, produtos, pedidos de vendas, itens de linha de pedidos de vendas e muito mais. 
 
-No arquivo ComandosDDL.sql [https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/ComandosDDL.sql] encontra-se os comandos para a criação do Banco de Dados, assim como algusn outros comandos DDL para criação de tabelas, modificação estrutural de tabelas e remoção de tabelas.
+No arquivo ComandosDDL.sql [https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/ComandosDDL.sql] encontra-se os comandos para a criação do Banco de Dados, assim como alguns outros comandos DDL para criação de tabelas, modificação estrutural de tabelas e remoção de tabelas.
  
 No arquivo  ComandoDML_Basico.sql[https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/ComandoDML_Basico.sql] encontra-se comandos de inserção, edição e remoção de dados nas tabelas.
 
@@ -30,7 +30,7 @@ SELECT officeCode, city from offices
 ```
 ![unidades](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/lojas.png)
 
-Em uma análise rápeda sobre o desempnho nas vendas, queremos considerar os empleados que não tem vendas registradas, assim como sua posição na empresa (não tedos tem que ser vendedores)
+Em uma análise rápida sobre o desempnho nas vendas, queremos considerar os empregados que não tem vendas registradas, assim como sua posição na empresa (nem todos tem que ser vendedores)
 ```
 SELECT e.employeeNumber, e.firstName, e.lastName
 FROM employees e
@@ -41,7 +41,7 @@ WHERE c.customerNumber IS NULL
 ![empleados_sem_vendas](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/empleados_semVendas.png)
 
 
-Também temos interese na existencia de produtos que nunca tem sido vendidos 
+Também temos interesse na existência de produtos que nunca tem sido vendidos: 
 ``` 
 SELECT p.productCode, p.productName
 FROM products p
@@ -52,7 +52,7 @@ WHERE od.productCode IS NULL
 ![produtos_nao_vendidos](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/produto_sem_vendas.png)
 
 
-Em uma nova proposta para incentivar aumentar as vendas a nivel global, a liderança da empresa quer saber a posição de cada unidade com respeito a quantidade de valor en vendas geradas historicamente
+Em uma nova proposta para incentivar aumentar as vendas a nivel global, a liderança da empresa quer saber a posição de cada unidade com respeito a quantidade de valor de vendas geradas historicamente
 ```
 SELECT o.officeCode as cof_loja, o.city as cidade, SUM(od.quantityOrdered * od.priceEach) AS vendas_totais
 FROM offices o
@@ -68,7 +68,7 @@ ORDER BY vendas_totais DESC
 
 
 
-Também temos intere nas vendas por empleado
+Também temos interesse nas vendas por empregado
 ```
 SELECT e.employeeNumber as cod, e.firstName as Nome, e.lastName as Sobrenome, o.city as Cidade,
        COUNT(c.customerNumber) AS quantidade_vendas
@@ -84,7 +84,7 @@ ORDER BY quantidade_vendas DESC
 
 
 
-Seguindo com a ideia de incrementar as vendas, serão selecionados para oferta de preço os produtos com valor de venda maior ao valor promedio de venda de todos os produtos
+Seguindo com a ideia de incrementar as vendas, serão selecionados para oferta de preço os produtos com valor de venda maior ao valor por meio de venda de todos os produtos
 ```
 SELECT productName as produto, productLine as categoria,  buyPrice as preco_venda
 FROM products
