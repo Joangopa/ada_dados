@@ -14,17 +14,20 @@ No arquivo  ComandoDML_Basico.sql[https://github.com/Joangopa/ada_dados/blob/mai
 
 ## Consultas em Base de Dados
 
+Inicialmente estamos interesados em consultar as diferentes categorias de produtos, assim com a quantidade de produtos diferentes por cada categoria
 ```
 SELECT productLine as Categoria_produtos, COUNT(*) AS total_produtos
 FROM products
 GROUP BY productline
 ;
 ```
+![categoria_produtos](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/categoria_produtos.png)
 
 ```
 SELECT officeCode, city from offices
 ;
 ```
+![unidades](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/lojas.png)
 
 Em uma análise rápeda sobre o desempnho nas vendas, queremos considerar os empleados que não tem vendas registradas, assim como sua posição na empresa (não tedos tem que ser vendedores)
 ```
@@ -60,7 +63,37 @@ GROUP BY o.officeCode
 ORDER BY vendas_totais DESC
 ;
 ```
+![valor_vendas_lojas](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/vendas_lojas.png)
 
+
+
+Também temos intere nas vendas por empleado
+```
+SELECT e.employeeNumber as cod, e.firstName as Nome, e.lastName as Sobrenome, o.city as Cidade,
+       COUNT(c.customerNumber) AS quantidade_vendas
+FROM employees e
+LEFT JOIN offices o ON e.officeCode = o.officeCode
+LEFT JOIN customers c ON e.employeeNumber = c.salesRepEmployeeNumber
+GROUP BY e.employeeNumber, e.firstName, e.lastName, o.city
+HAVING quantidade_vendas > 0
+ORDER BY quantidade_vendas DESC 
+;
+```
+![quantidade_vendas_empleado](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/quantidade_vendas_empleado.png)
+
+
+
+Seguindo com a ideia de incrementar as vendas, serão selecionados para oferta de preço os produtos com valor de venda maior ao valor promedio de venda de todos os produtos
+```
+SELECT productName as produto, productLine as categoria,  buyPrice as preco_venda
+FROM products
+WHERE buyPrice > (
+    SELECT AVG(buyPrice) 
+    FROM products)
+ORDER BY preco_venda DESC
+;
+```
+![mais_caros_promedio](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/mais_caros_promedio.png)
 
 
 
