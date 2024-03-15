@@ -23,6 +23,7 @@ GROUP BY productline
 ```
 ![categoria_produtos](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/categoria_produtos.png)
 
+Unidades de venda da empresa
 ```
 SELECT officeCode, city from offices
 ;
@@ -109,4 +110,23 @@ HAVING COUNT(o.orderNumber) > 5
 
 
 
-
+Finalmente, queremos saber quais são os 5 produtos com menos vendas no mundo
+```
+SELECT 
+    p.productCode as cod_produto, 
+    p.productName as produto,
+    p.productLine as categoria,
+    SUM(od.quantityOrdered) AS total_vendas
+FROM 
+    products p
+LEFT JOIN 
+    orderdetails od ON p.productCode = od.productCode
+GROUP BY 
+    p.productCode, 
+    p.productName
+ORDER BY 
+    total_vendas
+LIMIT 5
+;
+```
+![produtos_menos_vendidos](https://github.com/Joangopa/ada_dados/blob/main/3-Criacao_Consultas_BD/resultados_consultas/produtos_menos_vendidos.png)
