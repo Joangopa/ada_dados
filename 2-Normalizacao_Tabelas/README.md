@@ -2,9 +2,13 @@
 
 A normalização de tabelas é um processo fundamental no design de bases de dados, que visa a organização eficiente e livre de redundâncias dos dados. Através da normalização, as tabelas são estruturadas de forma a minimizar a duplicação de informações e garantir a integridade dos dados armazenados.
 
-Iniciamos com a nossa tabela sem normalização
+Um primeiro exemplo pode ser encontrado em https://github.com/juliomalta/Ada_repo.
+
+
+Consideremos agora a seguinte tabela
 ![forma0](https://github.com/Joangopa/ada_dados/blob/main/2-Normalizacao_Tabelas/0F.png)
 
+Note que ela não se encontra na primeira forma normal.
 
 Na primeira forma normal (1FN), cada coluna em uma tabela contém apenas valores atômicos, ou seja, valores indivisíveis. 
 ![forma1](https://github.com/Joangopa/ada_dados/blob/main/2-Normalizacao_Tabelas/1F.png)
